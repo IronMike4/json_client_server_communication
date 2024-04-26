@@ -33,10 +33,18 @@
       alert(incomeItems);
 
       // Prompt user to add another income entry
-      const newIncomeName = prompt("Enter the name of the new income:");
-      const newIncomeAmount = parseFloat(
-        prompt("Enter the amount of the new income:")
-      );
+      let newIncomeName = prompt("Enter the name of the new income:");
+      let newIncomeAmount = prompt("Enter the amount of the new income:");
+      // Continue prompting until a valid amount is entered
+      while (
+        newIncomeAmount.trim() === "" ||
+        isNaN(parseFloat(newIncomeAmount))
+      ) {
+        newIncomeAmount = prompt(
+          "Please enter a valid amount for the new income:"
+        );
+      }
+      newIncomeAmount = parseFloat(newIncomeAmount);
       const newIncomeRecurring = confirm(
         "Is this income recurring?\n\n(Click OK for Yes and Cancel for No)"
       );
@@ -63,10 +71,18 @@
       alert(expenseItems);
 
       // Prompt user to add another expense entry
-      const newExpenseName = prompt("Enter the name of the new expense:");
-      const newExpenseAmount = parseFloat(
-        prompt("Enter the amount of the new expense:")
-      );
+      let newExpenseName = prompt("Enter the name of the new expense:");
+      let newExpenseAmount = prompt("Enter the amount of the new expense:");
+      // Continue prompting until a valid amount is entered
+      while (
+        newExpenseAmount.trim() === "" ||
+        isNaN(parseFloat(newExpenseAmount))
+      ) {
+        newExpenseAmount = prompt(
+          "Please enter a valid amount for the new expense:"
+        );
+      }
+      newExpenseAmount = parseFloat(newExpenseAmount);
       const newExpenseRecurring = confirm(
         "Is this income recurring?\n\n(Click OK for Yes and Cancel for No)"
       );
@@ -110,9 +126,14 @@
       alert(totalDisposableIncomeMessage);
 
       // Ask user how much disposable income they want to put into savings
-      const savingsAmount = parseFloat(
-        prompt("How much disposable income do you want to put into savings?")
+      let savingsAmount = prompt(
+        "How much disposable income do you want to put into savings?"
       );
+      // Continue prompting until a valid amount is entered
+      while (savingsAmount.trim() === "" || isNaN(parseFloat(savingsAmount))) {
+        savingsAmount = prompt("Please enter a valid amount for savings:");
+      }
+      savingsAmount = parseFloat(savingsAmount);
 
       // Subtract savings from disposable income
       const disposableIncomeLeft = disposableIncome - savingsAmount;
