@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Tracker</title>
+  </head>
+  <body>
+    <script>
+      // Create income objects
+      const income1 = { name: "Salary", amount: 4000, recurring: true };
+      const income2 = { name: "Freelance", amount: 2000, recurring: false };
+      const income3 = { name: "Betting", amount: 1550, recurring: false };
+      const income4 = { name: "Investments", amount: 1140, recurring: false };
+      const income5 = { name: "eBucks", amount: 200, recurring: true };
+
+      // Create expenses objects
+      const expenses1 = { name: "Groceries", amount: 350, recurring: true };
+      const expenses2 = { name: "Rent", amount: 1100, recurring: true };
+      const expenses3 = { name: "Electricity", amount: 400, recurring: true };
+      const expenses4 = { name: "Holiday", amount: 800, recurring: false };
+      const expenses5 = { name: "Car Insurance", amount: 250, recurring: true };
+
+      // Display income items
+      let incomeItems = "Income Items:\n";
+      [income1, income2, income3, income4, income5].forEach((income, index) => {
+        incomeItems += `${index + 1}. Name: ${
+          income.name
+        } - Amount: R${income.amount.toFixed(2)} - Recurring: ${
+          income.recurring
+        }\n`;
+      });
+      alert(incomeItems);
+
+      // Prompt user to add another income entry
+      const newIncomeName = prompt("Enter the name of the new income:");
+      const newIncomeAmount = parseFloat(
+        prompt("Enter the amount of the new income:")
+      );
+      const newIncomeRecurring = confirm(
+        "Is this income recurring?\n\n(Click OK for Yes and Cancel for No)"
+      );
+      const newIncome = {
+        name: newIncomeName,
+        amount: newIncomeAmount,
+        recurring: newIncomeRecurring,
+      };
+
+      // Store newIncome in session storage
+      sessionStorage.setItem("newIncome", JSON.stringify(newIncome));
+
+      // Display expense items
+      let expenseItems = "Expense Items:\n";
+      [expenses1, expenses2, expenses3, expenses4, expenses5].forEach(
+        (expense, index) => {
+          expenseItems += `${index + 1}. Name: ${
+            expense.name
+          } - Amount: R${expense.amount.toFixed(2)} - Recurring: ${
+            expense.recurring
+          }\n`;
+        }
+      );
+      alert(expenseItems);
+
+      // Prompt user to add another expense entry
+      const newExpenseName = prompt("Enter the name of the new expense:");
+      const newExpenseAmount = parseFloat(
+        prompt("Enter the amount of the new expense:")
+      );
+      const newExpenseRecurring = confirm(
+        "Is this income recurring?\n\n(Click OK for Yes and Cancel for No)"
+      );
+      const newExpense = {
+        name: newExpenseName,
+        amount: newExpenseAmount,
+        recurring: newExpenseRecurring,
+      };
+
+      // Store newExpense in session storage
+      sessionStorage.setItem("newExpense", JSON.stringify(newExpense));
+
+      // Calculate total disposable income
+      let totalIncome = [income1, income2, income3, income4, income5].reduce(
+        (acc, income) => acc + income.amount,
+        0
+      );
+      let totalExpenses = [
+        expenses1,
+        expenses2,
+        expenses3,
+        expenses4,
+        expenses5,
+      ].reduce((acc, expense) => acc + expense.amount, 0);
+
+      // Add amounts from newly added income and expenses
+      if (newIncome) {
+        totalIncome += newIncome.amount;
+      }
+      if (newExpense) {
+        totalExpenses += newExpense.amount;
+      }
+
+      // Display total amount of disposable income
+      const disposableIncome = totalIncome - totalExpenses;
+      const totalDisposableIncomeMessage = `Total disposable income: R${disposableIncome.toFixed(
+        2
+      )} \n\n(Total income: R${totalIncome.toFixed(
+        2
+      )} - Total expenses: R${totalExpenses.toFixed(2)})`;
+      alert(totalDisposableIncomeMessage);
+
+      // Ask user how much disposable income they want to put into savings
+      const savingsAmount = parseFloat(
+        prompt("How much disposable income do you want to put into savings?")
+      );
+
+      // Subtract savings from disposable income
+      const disposableIncomeLeft = disposableIncome - savingsAmount;
+
+      // Display total disposable income left
+      alert(
+        `Total disposable income left after savings: R${disposableIncomeLeft.toFixed(
+          2
+        )} \n\n(Total disposable income: R${disposableIncome.toFixed(
+          2
+        )} - Savings: R${savingsAmount.toFixed(2)})`
+      );
+    </script>
+  </body>
+</html>
