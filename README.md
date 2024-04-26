@@ -30,9 +30,9 @@ Michael Mahachi
 
 ## Resources
 
-[HyperionDev JSON and Client-Server Communication PDF](https://www.dropbox.com/home/MT24020013547/1%20-%20JavaScript%20Programming/L1T13%20-%20JSON%20and%20Client-Server%20Communication?preview=11-030-1+JSON+and+Client-Server+Communication.pdf)
-[Expense Tracker Using JavaScript](https://www.youtube.com/watch?v=heb6C8wHEzs)
-[Expense Tracker App](https://codingtorque.com/expense-tracker-using-javascript/)
+- [HyperionDev JSON and Client-Server Communication PDF](https://www.dropbox.com/home/MT24020013547/1%20-%20JavaScript%20Programming/L1T13%20-%20JSON%20and%20Client-Server%20Communication?preview=11-030-1+JSON+and+Client-Server+Communication.pdf)
+- [Expense Tracker Using JavaScript](https://www.youtube.com/watch?v=heb6C8wHEzs)
+- [Expense Tracker App](https://codingtorque.com/expense-tracker-using-javascript/)
 [Create a README file](https://www.makeareadme.com/)
 
 ## GitHub Repository
